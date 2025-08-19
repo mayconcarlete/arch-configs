@@ -7,3 +7,5 @@ sudo python3 install.py
 
 rm install.py
 
+
+# sudo wget -qO-  https://raw.githubusercontent.com/mayconcarlete/arch-configs/refs/heads/main/install.sh | sh
