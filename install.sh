@@ -5,7 +5,7 @@ BASE_URL="https://raw.githubusercontent.com/mayconcarlete/arch-configs/refs/head
 
 
 for FILE in "${FILES[@]}";do
-    wget -qO- "$BASE_URL/${FILE}" -o ${FILE}
+    wget "$BASE_URL/${FILE}" -o ${FILE}
 done
 
 
