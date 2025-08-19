@@ -1,10 +1,9 @@
 #!/bin/bash
 
-BASE_URL=https://raw.githubusercontent.com/mayconcarlete/arch-configs/refs/heads/main
+# This file is reponsible for downloading and erase the script file
+wget 'https://raw.githubusercontent.com/mayconcarlete/arch-configs/refs/heads/main/install.py' -O install.py
 
-for FILE in functions.sh config.sh; do
-    wget "$BASE_URL/$FILE" -o "$FILE"
-done
+sudo python3 install.py
 
-say_config()
-say_functions()
+rm install.py
+
