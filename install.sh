@@ -1,21 +1,26 @@
-#!/bin/bash
-
-FILES=("functions.sh" "config.sh")
-BASE_URL="https://raw.githubusercontent.com/mayconcarlete/arch-configs/refs/heads/main"
+#!/usr/bin/env bash
 
 
-for FILE in "${FILES[@]}";do
-    source <(wget -qO- "$BASE_URL/${FILE}")
-done
+# FILES=("functions.sh" "config.sh")
 
-print_functions
-print_config
+# BASE_URL="https://raw.githubusercontent.com/mayconcarlete/arch-configs/refs/heads/main/install.py"
 
-# This file is reponsible for downloading and erase the script file
-# wget 'https://raw.githubusercontent.com/mayconcarlete/arch-configs/refs/heads/main/install.py' -O install.py
 
-# sudo python3 install.py
+# for FILE in "${FILES[@]}";do
+#     source <(wget -qO- "$BASE_URL/${FILE}")
+# done
 
-# rm install.py
+# print_functions
+# print_config
 
-# sudo wget -qO-  https://raw.githubusercontent.com/mayconcarlete/arch-configs/refs/heads/main/install.sh | sh
+set -euo pipefail
+
+echo "Baixando e executando install.py..."
+
+python3 - <<'EOF'
+import urllib.request
+
+url = "https://raw.githubusercontent.com/mayconcarlete/arch-configs/refs/heads/main/install.py"
+source = urllib.request.urlopen(url).read().decode()
+exec(source)
+EOF
