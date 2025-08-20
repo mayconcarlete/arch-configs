@@ -1,7 +1,7 @@
 import urllib.request
 
 base_url = 'https://raw.githubusercontent.com/mayconcarlete/arch-configs/refs/heads/main'
-files = ['functions.py', 'config.py']
+files = ['nvidia.py', 'functions.py', 'config.py']
 
 for file in files:
     url = f'{base_url}/{file}'
