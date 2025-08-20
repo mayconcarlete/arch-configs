@@ -9,9 +9,12 @@ formatted_lspci=[vga_info for vga_info in lspci.stdout.split("\n") if len(vga_in
 
 available_vgas=['intel', 'nvidia', 'amd']
 detected_vgas=[]
-for vga_info in formatted_lspci:
-    
+for detected_vga in formatted_lspci:
+    for available_vga in available_vgas:
+        if detected_vga.lower().__contains__(available_vga):
+            detected_vgas.append(available_vga)
 
+print(detected_vgas)
 
 
 
